@@ -76,7 +76,7 @@ fun configureHbcc(automation: UIAutomation, index: Int): Boolean {
     window.getButton(hbccApplyButton).click()
     window.getButton(hbccApplyConfirmButton).click()
 
-    Thread.sleep(10_000)
+    println("Completed configuration round")
     return !currentStatus
 }
 
@@ -124,7 +124,7 @@ fun configureWattman(window: AutomationWindow, index: Int, cardsCount: Int,
     try {
         window.getButton(applyButton).click()
         println("Wattman configuration $index complete")
-    } catch(e:Exception) {
+    } catch (e: Exception) {
         println("Couldn't find apply button. No changes? Wattman configuration $index complete")
     }
 }
