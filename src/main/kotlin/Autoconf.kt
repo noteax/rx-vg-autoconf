@@ -63,7 +63,7 @@ fun configureHbcc(automation: UIAutomation, index: Int): Boolean {
     val window = openGlobalSettings(automation)
 
     window.getButton(hbccButton).click()
-    Thread.sleep(1500)
+    Thread.sleep(3000)
 
     println("HBCC $index button clicked. Looking for toggle...")
 
@@ -75,6 +75,8 @@ fun configureHbcc(automation: UIAutomation, index: Int): Boolean {
 
     window.getButton(hbccApplyButton).click()
     window.getButton(hbccApplyConfirmButton).click()
+
+    Thread.sleep(10_000)
     return !currentStatus
 }
 
@@ -98,7 +100,7 @@ fun configureWattman(window: AutomationWindow, index: Int, cardsCount: Int,
     val powerLimitRange = Pair(-50, 50)
 
     window.getButton(wattmanButton).click()
-    Thread.sleep(1500)
+    Thread.sleep(3000)
 
     val scrollBarControl = window.getControlByName(scrollBar)
     for (i in 0..13) scrollBarControl.invoke()
