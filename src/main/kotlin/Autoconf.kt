@@ -36,7 +36,7 @@ fun main(args: Array<String>) {
 
 fun getWindow(automation: UIAutomation): AutomationWindow {
     val windowName = "RADEON SETTINGS RADEON SETTINGS"
-    return automation.getDesktopWindow(windowName, 60)
+    return automation.getDesktopWindow(windowName, 180)
 }
 
 fun openGlobalSettings(automation: UIAutomation): AutomationWindow {
@@ -75,6 +75,8 @@ fun configureHbcc(automation: UIAutomation, index: Int): Boolean {
 
     window.getButton(hbccApplyButton).click()
     window.getButton(hbccApplyConfirmButton).click()
+
+    Thread.sleep(3000)
 
     println("Completed configuration round")
     return !currentStatus
