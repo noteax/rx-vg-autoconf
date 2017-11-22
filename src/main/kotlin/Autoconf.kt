@@ -121,8 +121,12 @@ fun configureWattman(window: AutomationWindow, index: Int, cardsCount: Int,
     setSliderVal(findElement(window, powerLimitSlider) as AutomationSlider, powerLimit, powerLimitRange)
     println("Set powerLimit to $powerLimit")
 
-    window.getButton(applyButton).click()
-    println("Wattman configuration $index complete")
+    try {
+        window.getButton(applyButton).click()
+        println("Wattman configuration $index complete")
+    } catch(e:Exception) {
+        println("Couldn't find apply button. No changes? Wattman configuration $index complete")
+    }
 }
 
 fun findElement(window: AutomationWindow, namePattern: String): AutomationBase? {
