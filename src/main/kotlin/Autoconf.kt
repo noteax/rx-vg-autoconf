@@ -7,11 +7,7 @@ import java.util.regex.Pattern
 fun main(args: Array<String>) {
     // args
     val applicationPath = args[0]
-    val numberOfCards = args[1].toInt()
-    val gpuFreq = args[2].toInt()
-    val memFreq = args[3].toInt()
-    val tempTarget = args[4].toInt()
-    val powerLimit = args[5].toInt()
+    val (numberOfCards, gpuFreq, memFreq, tempTarget, powerLimit) = args.drop(1).take(5).map(String::toInt)
 
     println(applicationPath)
 
